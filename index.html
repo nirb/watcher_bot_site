@@ -1,1 +1,249 @@
-<html><body>Test</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-attachment: fixed;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+        }
+        
+        .total-card {
+            text-align: center;
+            padding: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .total-card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+        
+        .total-card .value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        
+        .card .value {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            animation: fadeInUp 1.4s ease-out;
+        }
+        
+        .list-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #38bdf8;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+        
+        .dist-row, .rate-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .dist-row:last-child, .rate-row:last-child {
+            border-bottom: none;
+        }
+        
+        .dist-q, .rate-curr {
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+        
+        .dist-val, .rate-val {
+            font-weight: 300;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .total-card .value { font-size: 3rem; }
+            body { padding: 1rem; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Portfolio Overview</h1>
+            <p>Live automated dashboard from Watcher Bot</p>
+        </header>
+        
+        <div class="glass total-card">
+            <h2>Total Value (ILS)</h2>
+            <div class="value">₪68,595,503</div>
+        </div>
+        
+        <div class="grid">
+            
+        <div class="card glass">
+            <h3>ILS Allocation</h3>
+            <div class="value">₪41,800,559</div>
+        </div>
+        
+        <div class="card glass">
+            <h3>USD Allocation</h3>
+            <div class="value">$7,167,625</div>
+        </div>
+        
+        <div class="card glass">
+            <h3>EUR Allocation</h3>
+            <div class="value">€1,646,473</div>
+        </div>
+        
+        </div>
+        
+        <div class="info-grid">
+            <div class="glass list-section">
+                <h3>Recent Distributions</h3>
+                
+        <div class="dist-row">
+            <span class="dist-q">Q3 23</span>
+            <span class="dist-val">₪152,768</span>
+        </div>
+        
+        <div class="dist-row">
+            <span class="dist-q">Q4 23</span>
+            <span class="dist-val">₪218,607</span>
+        </div>
+        
+        <div class="dist-row">
+            <span class="dist-q">Q1 24</span>
+            <span class="dist-val">₪211,212</span>
+        </div>
+        
+        <div class="dist-row">
+            <span class="dist-q">Q2 24</span>
+            <span class="dist-val">₪353,567</span>
+        </div>
+        
+        <div class="dist-row">
+            <span class="dist-q">Q3 24</span>
+            <span class="dist-val">₪238,461</span>
+        </div>
+        
+            </div>
+            
+            <div class="glass list-section">
+                <h3>Exchange Rates</h3>
+                
+        <div class="rate-row">
+            <span class="rate-curr">USD / ILS</span>
+            <span class="rate-val">₪2.94</span>
+        </div>
+        
+            <div class="rate-row">
+                <span class="rate-curr">EUR / ILS</span>
+                <span class="rate-val">₪3.46</span>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

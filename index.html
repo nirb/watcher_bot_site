@@ -77,42 +77,57 @@
             box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
         }
         
-        .total-card {
+        .main-card {
             text-align: center;
             padding: 3rem;
             animation: fadeInUp 1s ease-out;
+            margin-bottom: 2rem;
         }
         
-        .total-card h2 {
+        .total-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .total-section h2 {
             font-size: 1.5rem;
             font-weight: 400;
             color: #94a3b8;
             margin-bottom: 1rem;
         }
         
-        .total-card .value {
+        .total-section .value {
             font-size: 4rem;
             font-weight: 800;
             color: var(--accent-color);
         }
         
-        .grid {
+        .allocations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            animation: fadeInUp 1.2s ease-out;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
         }
         
-        .card h3 {
+        .alloc-item {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .alloc-curr {
             font-size: 1.2rem;
             color: #cbd5e1;
-            margin-bottom: 1rem;
-            font-weight: 400;
         }
         
-        .card .value {
-            font-size: 2rem;
+        .alloc-val {
+            font-size: 1.8rem;
             font-weight: 600;
+            color: var(--text-color);
         }
         
         .info-grid {
@@ -130,24 +145,68 @@
             padding-bottom: 0.5rem;
         }
         
-        .dist-row, .rate-row {
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 250px;
+            padding-top: 2rem;
+        }
+        
+        .bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .bar {
+            width: 100%;
+            max-width: 50px;
+            background: linear-gradient(to top, #0284c7, #38bdf8);
+            border-radius: 6px 6px 0 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            transition: height 0.5s ease;
+        }
+        
+        .bar-val {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        
+        .bar-label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            white-space: nowrap;
+        }
+        
+        .rate-row {
             display: flex;
             justify-content: space-between;
-            padding: 0.75rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        .dist-row:last-child, .rate-row:last-child {
+        .rate-row:last-child {
             border-bottom: none;
         }
         
-        .dist-q, .rate-curr {
+        .rate-curr, .rate-val {
+            font-size: 1.5rem;
             font-weight: 600;
+        }
+        
+        .rate-curr {
             color: #cbd5e1;
         }
         
-        .dist-val, .rate-val {
-            font-weight: 300;
+        .rate-val {
+            color: var(--text-color);
         }
         
         @keyframes fadeInDown {
@@ -161,9 +220,12 @@
         }
         
         @media (max-width: 768px) {
-            .total-card .value { font-size: 3rem; }
+            .total-section .value { font-size: 3rem; }
             body { padding: 1rem; }
             header h1 { font-size: 2.5rem; }
+            .bar { max-width: 30px; }
+            .bar-val { font-size: 0.8rem; }
+            .bar-label { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -174,59 +236,67 @@
             <p>Live automated dashboard from Watcher Bot</p>
         </header>
         
-        <div class="glass total-card">
+        
+    <div class="glass main-card">
+        <div class="total-section">
             <h2>Total Value (ILS)</h2>
-            <div class="value">₪68,603,940</div>
+            <div class="value">₪68,677,633</div>
         </div>
-        
-        <div class="grid">
+        <div class="allocations-grid">
             
-        <div class="card glass">
-            <h3>ILS Allocation</h3>
-            <div class="value">₪41,800,559</div>
+        <div class="alloc-item">
+            <span class="alloc-curr">ILS</span>
+            <span class="alloc-val">₪41,900,681</span>
         </div>
         
-        <div class="card glass">
-            <h3>USD Allocation</h3>
-            <div class="value">$7,170,491</div>
+        <div class="alloc-item">
+            <span class="alloc-curr">USD</span>
+            <span class="alloc-val">$7,170,491</span>
         </div>
         
-        <div class="card glass">
-            <h3>EUR Allocation</h3>
-            <div class="value">€1,646,473</div>
+        <div class="alloc-item">
+            <span class="alloc-curr">EUR</span>
+            <span class="alloc-val">€1,646,473</span>
         </div>
         
         </div>
+    </div>
+    
         
         <div class="info-grid">
             <div class="glass list-section">
                 <h3>Recent Distributions</h3>
-                
-        <div class="dist-row">
-            <span class="dist-q">Q3 23</span>
-            <span class="dist-val">₪152,768</span>
-        </div>
-        
-        <div class="dist-row">
-            <span class="dist-q">Q4 23</span>
-            <span class="dist-val">₪218,607</span>
-        </div>
-        
-        <div class="dist-row">
-            <span class="dist-q">Q1 24</span>
-            <span class="dist-val">₪211,212</span>
-        </div>
-        
-        <div class="dist-row">
-            <span class="dist-q">Q2 24</span>
-            <span class="dist-val">₪353,567</span>
-        </div>
-        
-        <div class="dist-row">
-            <span class="dist-q">Q3 24</span>
-            <span class="dist-val">₪238,461</span>
-        </div>
-        
+                <div class="bar-chart">
+            <div class="bar-wrapper">
+                <span class="bar-val">₪152,768</span>
+                <div class="bar" style="height: 43.20765229786716%;"></div>
+                <span class="bar-label">Q3 23</span>
+            </div>
+            
+            <div class="bar-wrapper">
+                <span class="bar-val">₪218,607</span>
+                <div class="bar" style="height: 61.82901684829184%;"></div>
+                <span class="bar-label">Q4 23</span>
+            </div>
+            
+            <div class="bar-wrapper">
+                <span class="bar-val">₪211,212</span>
+                <div class="bar" style="height: 59.737475499693126%;"></div>
+                <span class="bar-label">Q1 24</span>
+            </div>
+            
+            <div class="bar-wrapper">
+                <span class="bar-val">₪353,567</span>
+                <div class="bar" style="height: 100.0%;"></div>
+                <span class="bar-label">Q2 24</span>
+            </div>
+            
+            <div class="bar-wrapper">
+                <span class="bar-val">₪238,461</span>
+                <div class="bar" style="height: 67.44435990915441%;"></div>
+                <span class="bar-label">Q3 24</span>
+            </div>
+            </div>
             </div>
             
             <div class="glass list-section">
@@ -239,7 +309,7 @@
         
             <div class="rate-row">
                 <span class="rate-curr">EUR / ILS</span>
-                <span class="rate-val">₪3.46</span>
+                <span class="rate-val">₪3.44</span>
             </div>
             
             </div>

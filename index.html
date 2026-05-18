@@ -293,7 +293,48 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 1.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .last-updated {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        
         @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column-reverse;
+                gap: 1rem;
+                align-items: flex-start;
+            }
             .total-section .value { font-size: 3rem; }
             body { padding: 1rem; }
             header h1 { font-size: 2.5rem; }
@@ -305,15 +346,19 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Portfolio Overview</h1>
-        </header>
+        <div class="top-bar">
+            <div class="last-updated">
+                <span class="status-dot"></span>
+                <span>Last Updated: 18/05/26 09:32</span>
+            </div>
+            <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Portfolio Overview</h1>
+        </div>
         
         
     <div class="glass main-card">
         <div class="total-section">
             <h2>Total Value (ILS)</h2>
-            <div class="value">₪69,107,256</div>
+            <div class="value">₪69,104,348</div>
         </div>
         <div class="allocations-grid">
             
@@ -406,8 +451,8 @@
         </div>
         
         <div class="perf-bar-wrapper">
-            <span class="perf-val">₪69.11M</span>
-            <div class="perf-bar" style="height: 84.91856813339504%;" title="₪69,107,256"></div>
+            <span class="perf-val">₪69.10M</span>
+            <div class="perf-bar" style="height: 84.86530087765482%;" title="₪69,104,348"></div>
             <span class="perf-label">May 26</span>
         </div>
         </div>
@@ -442,8 +487,8 @@
             </div>
             
             <div class="bar-wrapper">
-                <span class="bar-val">₪334,511</span>
-                <div class="bar" style="height: 54.07496855833923%;"></div>
+                <span class="bar-val">₪334,500</span>
+                <div class="bar" style="height: 54.07319036672777%;"></div>
                 <span class="bar-label">Q2 26</span>
             </div>
             </div>
@@ -459,7 +504,7 @@
         
             <div class="rate-row">
                 <span class="rate-curr">EUR / ILS</span>
-                <span class="rate-val">₪3.403</span>
+                <span class="rate-val">₪3.402</span>
             </div>
             
             </div>

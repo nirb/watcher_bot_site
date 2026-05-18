@@ -188,6 +188,55 @@
             white-space: nowrap;
         }
         
+        .perf-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 250px;
+            padding-top: 2rem;
+            overflow-x: auto;
+            gap: 10px;
+        }
+        
+        .perf-bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            flex: 1;
+            min-width: 50px;
+        }
+        
+        .perf-bar {
+            width: 100%;
+            max-width: 40px;
+            background: linear-gradient(to top, #6366f1, #a5b4fc);
+            border-radius: 6px 6px 0 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            transition: height 0.5s ease;
+            position: relative;
+        }
+        
+        .perf-bar:hover {
+            background: linear-gradient(to top, #4f46e5, #c7d2fe);
+            transform: scaleY(1.05);
+        }
+        
+        .perf-val {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .perf-label {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            white-space: nowrap;
+        }
+        
         .rate-row {
             display: flex;
             justify-content: space-between;
@@ -264,7 +313,7 @@
     <div class="glass main-card">
         <div class="total-section">
             <h2>Total Value (ILS)</h2>
-            <div class="value">₪69,116,008</div>
+            <div class="value">₪69,107,256</div>
         </div>
         <div class="allocations-grid">
             
@@ -286,6 +335,83 @@
         </div>
     </div>
     
+        
+        <div class="glass list-section" style="width: 100%; margin-bottom: 2rem;">
+            <h3>Portfolio Performance Over Time (12 Months)</h3>
+            <div class="perf-chart">
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪65.79M</span>
+            <div class="perf-bar" style="height: 24.077097890900184%;" title="₪65,785,411"></div>
+            <span class="perf-label">Jun 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪65.29M</span>
+            <div class="perf-bar" style="height: 15.0%;" title="₪65,289,816"></div>
+            <span class="perf-label">Jul 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪65.71M</span>
+            <div class="perf-bar" style="height: 22.718527422533068%;" title="₪65,711,235"></div>
+            <span class="perf-label">Aug 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪66.01M</span>
+            <div class="perf-bar" style="height: 28.23185178604163%;" title="₪66,012,253"></div>
+            <span class="perf-label">Sep 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪66.14M</span>
+            <div class="perf-bar" style="height: 30.484488543150746%;" title="₪66,135,244"></div>
+            <span class="perf-label">Oct 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪65.73M</span>
+            <div class="perf-bar" style="height: 23.06025624288592%;" title="₪65,729,893"></div>
+            <span class="perf-label">Nov 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪67.25M</span>
+            <div class="perf-bar" style="height: 50.935073751944124%;" title="₪67,251,813"></div>
+            <span class="perf-label">Dec 25</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪67.71M</span>
+            <div class="perf-bar" style="height: 59.343950105283376%;" title="₪67,710,924"></div>
+            <span class="perf-label">Jan 26</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪67.26M</span>
+            <div class="perf-bar" style="height: 51.12505352929459%;" title="₪67,262,185"></div>
+            <span class="perf-label">Feb 26</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪67.70M</span>
+            <div class="perf-bar" style="height: 59.07568786983815%;" title="₪67,696,277"></div>
+            <span class="perf-label">Mar 26</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪69.93M</span>
+            <div class="perf-bar" style="height: 100.0%;" title="₪69,930,678"></div>
+            <span class="perf-label">Apr 26</span>
+        </div>
+        
+        <div class="perf-bar-wrapper">
+            <span class="perf-val">₪69.11M</span>
+            <div class="perf-bar" style="height: 84.91856813339504%;" title="₪69,107,256"></div>
+            <span class="perf-label">May 26</span>
+        </div>
+        </div>
+        </div>
         
         <div class="info-grid">
             <div class="glass list-section">
@@ -316,8 +442,8 @@
             </div>
             
             <div class="bar-wrapper">
-                <span class="bar-val">₪334,566</span>
-                <div class="bar" style="height: 54.08385951639655%;"></div>
+                <span class="bar-val">₪334,511</span>
+                <div class="bar" style="height: 54.07496855833923%;"></div>
                 <span class="bar-label">Q2 26</span>
             </div>
             </div>
@@ -328,7 +454,7 @@
                 
         <div class="rate-row">
             <span class="rate-curr">USD / ILS</span>
-            <span class="rate-val">₪2.926</span>
+            <span class="rate-val">₪2.925</span>
         </div>
         
             <div class="rate-row">

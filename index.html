@@ -305,6 +305,17 @@
             animation: fadeInDown 1s ease-out;
         }
         
+        .portfolio-title-link {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        
+        .portfolio-title-link:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+        
         .last-updated {
             position: absolute;
             left: 0;
@@ -356,9 +367,11 @@
         <div class="top-bar">
             <div class="last-updated">
                 <span class="status-dot"></span>
-                <span>Last Updated: 18/05/26 09:37</span>
+                <span>Last Updated: 18/05/26 18:29</span>
             </div>
-            <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Portfolio Overview</h1>
+            <a href="https://bejeranofin.com" class="portfolio-title-link">
+                <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer;">Portfolio Overview</h1>
+            </a>
         </div>
         
         
@@ -705,11 +718,6 @@
             </div>
         </div>
         
-        
-        <div class="glass message-section" style="margin-top: 2rem; border-color: var(--accent-color);">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #38bdf8;">Message</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6; color: #cbd5e1;">New DB Fetched</p>
-        </div>
         
     </div>
 </body>

@@ -257,6 +257,10 @@
             white-space: nowrap;
         }
         
+        .perf-hint {
+            display: none;
+        }
+        
         .rate-row {
             display: flex;
             justify-content: space-between;
@@ -381,10 +385,21 @@
             .bar-label { font-size: 0.8rem; }
             
             .perf-chart {
-                justify-content: flex-start;
+                justify-content: space-between;
                 padding-bottom: 10px;
+                cursor: pointer;
+            }
+            .perf-chart.expanded {
+                justify-content: flex-start;
+            }
+            .perf-chart:not(.expanded) .perf-bar-wrapper:nth-last-child(n+5) {
+                display: none;
             }
             .perf-bar-wrapper {
+                flex: 1;
+                min-width: 50px;
+            }
+            .perf-chart.expanded .perf-bar-wrapper {
                 flex: 0 0 70px;
             }
             .perf-val {
@@ -392,6 +407,27 @@
             }
             .perf-label {
                 font-size: 0.8rem;
+            }
+            .perf-hint {
+                display: block;
+                text-align: center;
+                font-size: 0.85rem;
+                color: var(--accent-color);
+                margin-top: 1rem;
+                cursor: pointer;
+                opacity: 0.8;
+                font-weight: 600;
+                transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+            .perf-hint:hover {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+            .perf-hint::after {
+                content: "📊 Tap to show 12 months performance";
+            }
+            .perf-chart.expanded ~ .perf-hint::after {
+                content: "📊 Tap to show less";
             }
         }
     </style>
@@ -401,7 +437,7 @@
         <div class="top-bar">
             <div class="last-updated">
                 <span class="status-dot"></span>
-                <span>20/05/26 13:45</span>
+                <span>20/05/26 13:47</span>
             </div>
             <a href="https://bejeranofin.com" class="portfolio-title-link">
                 <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer;">Portfolio Overview</h1>
@@ -437,7 +473,7 @@
         
         <div class="glass list-section" style="width: 100%; margin-bottom: 2rem;">
             <h3>Portfolio Performance Over Time (12 Months)</h3>
-            <div class="perf-chart">
+            <div class="perf-chart" onclick="this.classList.toggle('expanded')">
         <div class="perf-bar-wrapper">
             <span class="perf-val">₪65.785M</span>
             <div class="perf-bar" style="height: 24.077097890900184%;" title="₪65,785,411"></div>
@@ -509,7 +545,7 @@
             <div class="perf-bar" style="height: 85.25676941915876%;" title="₪69,125,722"></div>
             <span class="perf-label">May 26</span>
         </div>
-        </div>
+        </div><div class="perf-hint" onclick="document.querySelector('.perf-chart').classList.toggle('expanded')"></div>
         </div>
         
         <div class="info-grid">
@@ -752,11 +788,6 @@
             </div>
         </div>
         
-        
-        <div class="glass message-section" style="margin-top: 2rem; border-color: var(--accent-color);">
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #38bdf8;">Message</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6; color: #cbd5e1;">New event found. Total events: 2903</p>
-        </div>
         
     </div>
 </body>

@@ -368,24 +368,71 @@
         }
         
         @media (max-width: 768px) {
+            body { padding: 0.75rem; }
+            .container { gap: 1rem; }
+            .glass { padding: 1rem; }
+            
             .top-bar {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
                 align-items: center;
                 text-align: center;
+                padding-bottom: 0.5rem;
             }
             .last-updated {
                 position: static;
             }
-            .total-section .value { font-size: 3rem; }
-            body { padding: 1rem; }
-            header h1 { font-size: 2.5rem; }
+            
+            .main-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            .total-section {
+                margin-bottom: 1rem;
+            }
+            .total-section .value {
+                font-size: 2.5rem;
+            }
+            .allocations-grid {
+                padding-top: 1rem;
+                gap: 0.75rem;
+            }
+            .alloc-item {
+                padding: 1rem;
+                gap: 0.25rem;
+            }
+            .alloc-curr {
+                font-size: 1rem;
+            }
+            .alloc-val {
+                font-size: 1.4rem;
+            }
+            
+            .info-grid {
+                gap: 1rem;
+            }
+            
+            .list-section h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            .list-section {
+                margin-bottom: 1rem !important;
+            }
+            .message-section {
+                margin-top: 1rem !important;
+            }
+            
+            .bar-chart {
+                padding-top: 1rem;
+            }
             .bar { max-width: 30px; }
             .bar-val { font-size: 0.8rem; }
             .bar-label { font-size: 0.8rem; }
             
             .perf-chart {
                 justify-content: space-between;
+                padding-top: 1rem;
                 padding-bottom: 10px;
                 cursor: pointer;
             }
@@ -413,7 +460,7 @@
                 text-align: center;
                 font-size: 0.85rem;
                 color: var(--accent-color);
-                margin-top: 1rem;
+                margin-top: 0.75rem;
                 cursor: pointer;
                 opacity: 0.8;
                 font-weight: 600;
@@ -429,6 +476,11 @@
             .perf-chart.expanded ~ .perf-hint::after {
                 content: "📊 Tap to show less";
             }
+            
+            .data-table th, .data-table td {
+                padding: 0.5rem 0.25rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -437,7 +489,7 @@
         <div class="top-bar">
             <div class="last-updated">
                 <span class="status-dot"></span>
-                <span>20/05/26 13:47</span>
+                <span>20/05/26 13:50</span>
             </div>
             <a href="https://bejeranofin.com" class="portfolio-title-link">
                 <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer;">Portfolio Overview</h1>

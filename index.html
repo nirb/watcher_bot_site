@@ -196,6 +196,26 @@
             padding-top: 2rem;
             overflow-x: auto;
             gap: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+        }
+        
+        .perf-chart::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .perf-chart::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+        
+        .perf-chart::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+        
+        .perf-chart::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         
         .perf-bar-wrapper {
@@ -359,6 +379,20 @@
             .bar { max-width: 30px; }
             .bar-val { font-size: 0.8rem; }
             .bar-label { font-size: 0.8rem; }
+            
+            .perf-chart {
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+            .perf-bar-wrapper {
+                flex: 0 0 70px;
+            }
+            .perf-val {
+                font-size: 0.8rem;
+            }
+            .perf-label {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -367,7 +401,7 @@
         <div class="top-bar">
             <div class="last-updated">
                 <span class="status-dot"></span>
-                <span>20/05/26 05:00</span>
+                <span>20/05/26 13:45</span>
             </div>
             <a href="https://bejeranofin.com" class="portfolio-title-link">
                 <h1 style="font-size: 2.2rem; font-weight: 800; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer;">Portfolio Overview</h1>
@@ -378,7 +412,7 @@
     <div class="glass main-card">
         <div class="total-section">
             <h2>Total Value (ILS)</h2>
-            <div class="value">₪69,217,671</div>
+            <div class="value">₪69,125,722</div>
         </div>
         <div class="allocations-grid">
             
@@ -471,8 +505,8 @@
         </div>
         
         <div class="perf-bar-wrapper">
-            <span class="perf-val">₪69.218M</span>
-            <div class="perf-bar" style="height: 86.94086986606428%;" title="₪69,217,671"></div>
+            <span class="perf-val">₪69.126M</span>
+            <div class="perf-bar" style="height: 85.25676941915876%;" title="₪69,125,722"></div>
             <span class="perf-label">May 26</span>
         </div>
         </div>
@@ -507,8 +541,8 @@
             </div>
             
             <div class="bar-wrapper">
-                <span class="bar-val">₪334,691</span>
-                <div class="bar" style="height: 54.10406623925407%;"></div>
+                <span class="bar-val">₪334,203</span>
+                <div class="bar" style="height: 54.0251791932183%;"></div>
                 <span class="bar-label">Q2 26</span>
             </div>
             </div>
@@ -519,12 +553,12 @@
                 
         <div class="rate-row">
             <span class="rate-curr">USD / ILS</span>
-            <span class="rate-val">₪2.929</span>
+            <span class="rate-val">₪2.919</span>
         </div>
         
             <div class="rate-row">
                 <span class="rate-curr">EUR / ILS</span>
-                <span class="rate-val">₪3.397</span>
+                <span class="rate-val">₪3.386</span>
             </div>
             
             </div>
@@ -718,6 +752,11 @@
             </div>
         </div>
         
+        
+        <div class="glass message-section" style="margin-top: 2rem; border-color: var(--accent-color);">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #38bdf8;">Message</h3>
+            <p style="white-space: pre-wrap; line-height: 1.6; color: #cbd5e1;">New event found. Total events: 2903</p>
+        </div>
         
     </div>
 </body>

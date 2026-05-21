@@ -1,7 +1,7 @@
 {
-  "name": "Portfolio Dashboard",
-  "short_name": "Portfolio",
-  "description": "Premium Portfolio Dashboard App",
+  "name": "bejbot",
+  "short_name": "bejbot",
+  "description": "bejbot Portfolio Dashboard App",
   "start_url": "/watcher_bot_site/",
   "display": "standalone",
   "background_color": "#0f172a",
